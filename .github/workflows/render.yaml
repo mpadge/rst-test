@@ -38,7 +38,6 @@ jobs:
         git update-ref -d refs/heads/gh-pages
         rm -rf *
         mv ../_build/html/* .
-        mv ../_build/html/_* . # _sources + _static folders
         rm README.html
         git add .
         git commit -m "Deploy $GITHUB_SHA to gh-pages"
