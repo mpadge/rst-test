@@ -1,5 +1,5 @@
 # https://github.com/rust-lang/mdBook/wiki/Automated-Deployment%3A-GitHub-Actions#github-pages-deploy
-name: Deploy
+name: Render
 on:
   push:
     branches:
@@ -7,7 +7,7 @@ on:
 
 jobs:
 
-  deploy:
+  render:
 
     runs-on: ubuntu-latest
 
