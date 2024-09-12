@@ -30,6 +30,7 @@ jobs:
     - name: make docs and cname
       run: |
         make html
+        rm _build/html/README.html
         echo 'my.custom.domain' > _build/html/DUMMY_CNAME
 
     - name: Upload artifaces
