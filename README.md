@@ -1,3 +1,6 @@
 # GitHub Deployment of Sphinx docs
 
-Via readthedocs. Just a test.
+Just a test. The docs are built with the
+[`readthedocs`](https://readthedocs.io) makefile, and deploying with the
+workflow suggested in [the Sphinx
+docs](https://www.sphinx-doc.org/en/master/tutorial/deploying.html).
