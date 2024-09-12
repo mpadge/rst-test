@@ -27,18 +27,19 @@ jobs:
       with:
         path: "requirements.txt"
 
-    - name: Deploy GitHub Pages
+    - name: make docs
       run: |
         make html
-        git worktree add gh-pages
-        git config user.name "Deploy from CI"
-        git config user.email ""
-        cd gh-pages
-        # Delete the ref to avoid keeping history.
-        git update-ref -d refs/heads/gh-pages
-        rm -rf *
-        mv ../_build/html/* .
-        rm README.html
-        git add .
-        git commit -m "Deploy $GITHUB_SHA to gh-pages"
-        git push --force --set-upstream origin gh-pages
+
+    - name: Upload artifaces
+      uses: actions/upload-artifact@v4
+      with:
+        name: html-docs
+        path: _build/html/
+
+    - name: Deploy GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: _build/html
